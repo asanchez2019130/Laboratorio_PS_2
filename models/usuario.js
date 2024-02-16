@@ -6,5 +6,6 @@ const UsuarioSchema = Schema({
         type : String,
         required : [true, 'El nombre es obligatorio']
     },
+
     
 })
