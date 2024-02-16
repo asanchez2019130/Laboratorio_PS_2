@@ -11,7 +11,7 @@ const usuarioGet = async (req, res = response) => {
         Usuario.countDocuments(query),
         Usuario.find(query)
             .skip(Number(desde))
-            .limite(Number(limite))
+            .limit(Number(limite))
     ]);
 
     res.status(200).json({
@@ -38,7 +38,7 @@ const usuariosPut = async (req, res) => {
     const usuario = await Usuario.findOne({ _id: id });
 
     res.status(200).json({
-        msg: 'Usuario eliminado exitosamente',
+        msg: 'Usuario Actualizado exitosamente',
         usuario
     })
 }
