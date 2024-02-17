@@ -33,7 +33,7 @@ const usuariosPut = async (req, res) => {
     const { id } = req.params;
     const { _id, password, correo, role, ...resto } = req.body;
 
-    await Usuario.findByIdAndUpdate(id, resto)
+    await Usuario.findByIdAndUpdate(id, resto);
 
     const usuario = await Usuario.findOne({ _id: id });
 

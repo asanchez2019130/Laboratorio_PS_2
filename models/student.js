@@ -10,19 +10,22 @@ const StudentSchema = Schema({
         required: [true, 'El correo es obligatorio']
     },
     password: {
+        type: String,
         required: [true, 'El password es obligatorio']
     },
     asignatura: {
+        type: String,
         required: [true, 'La asignatura es obligatoria']
     },
-    role : {
+    role: {
         type: String,
+        enum: ["STUDENT_ROLE"],
         default: "STUDENT_ROLE"
     },
-    estado:{
+    estado: {
         type: Boolean,
         default: true
     }
 })
 
-module.exports = model('Usuario', UsuarioSchema)
+module.exports = model('Student', StudentSchema)
