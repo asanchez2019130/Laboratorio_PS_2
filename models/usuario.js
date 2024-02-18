@@ -25,4 +25,10 @@ const UsuarioSchema = Schema({
     }
 })
 
+UsuarioSchema.methods.toJSOM = function () {
+    const { __V, password, _id, ...usuario } = this.toObject();
+    usuario.uid = _id;
+    return usuario;
+}
+
 module.exports = model('Usuario', UsuarioSchema)
