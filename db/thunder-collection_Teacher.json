@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Teacher",
+    "dateExported": "2024-02-19T05:44:13.983Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "163a9c4c-2774-4657-9feb-3a08d2486f7c",
+            "colId": "36e05cb0-f3f4-424e-a0e3-f36d56042a7b",
+            "containerId": "",
+            "name": "teacherPost",
+            "url": "http://localhost:3000/api/teacher",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-19T05:10:39.939Z",
+            "modified": "2024-02-19T05:34:30.515Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"9\",\n  \"correo\": \"9@kinal.edu.gt\",\n  \"password\" : \"123456\",\n  \"asignatura\" : [\"Taller III\",\"Matematica\",\"Aleman\"],\n  \"role\": \"TEACHER_ROLE\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "01b19a00-5246-45da-80df-8410172ffbd0",
+            "colId": "36e05cb0-f3f4-424e-a0e3-f36d56042a7b",
+            "containerId": "",
+            "name": "teacherGet",
+            "url": "http://localhost:3000/api/teacher",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-19T05:33:11.508Z",
+            "modified": "2024-02-19T05:33:47.882Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b595f575-167c-4e0f-ab19-7bcd833d1c4d",
+            "colId": "36e05cb0-f3f4-424e-a0e3-f36d56042a7b",
+            "containerId": "",
+            "name": "getTeacherById",
+            "url": "http://localhost:3000/api/teacher/65d2e868f04088a2d4d85014",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-19T05:33:23.474Z",
+            "modified": "2024-02-19T05:35:14.024Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4e479ac3-a93c-4f3a-825d-b4b90798e39c",
+            "colId": "36e05cb0-f3f4-424e-a0e3-f36d56042a7b",
+            "containerId": "",
+            "name": "teacherPut",
+            "url": "http://localhost:3000/api/teacher/65d2e868f04088a2d4d85014",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-02-19T05:33:33.938Z",
+            "modified": "2024-02-19T05:36:06.191Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\" : \"Digo Ramirez\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b8975eb0-a5db-4e88-b14f-27a0081e80e2",
+            "colId": "36e05cb0-f3f4-424e-a0e3-f36d56042a7b",
+            "containerId": "",
+            "name": "teacherDelete",
+            "url": "http://localhost:3000/api/teacher/65d2e868f04088a2d4d85014",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-02-19T05:33:39.795Z",
+            "modified": "2024-02-19T05:37:21.372Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
