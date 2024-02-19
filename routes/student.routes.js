@@ -5,6 +5,7 @@ const { validarCampos } = require('../middlewares/validar-campos');
 
 const { studentGet, studentPost, studentsDelete, studentsPut, getStudentsByid } = require('../controllers/student.controller');
 const { existeStudent, existeStudentById } = require('../helpers/db-validator');
+const { validateMaxAsignaturaslength, validarCursos } = require('../middlewares/validar-cursos');
 
 const router = Router();
 
@@ -39,11 +40,11 @@ router.post(
     "/",
     [
         check("nombre", "El nombre es obligatorio").not().isEmpty(),
-        check("password", "el password debe de ser mayor a 6 caracteres").isLength({ min: 6, }),
-        check("asignatura","Asignaturas es obligatorio").not().isEmpty(),
+        check("password", "el password debe de ser mayor a 6 caracteres").isLength({ min: 6 }),
+        check("asignatura", "Asignaturas es obligatorio"),
         check("correo", "Este no es un correo valido").isEmail(),
         check("correo").custom(existeStudent),
-        validarCampos
+        validarCursos
     ], studentPost);
 
 module.exports = router;

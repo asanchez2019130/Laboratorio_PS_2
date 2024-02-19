@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose")
+const { validateMaxAsignaturaslength } = require("../middlewares/validar-cursos")
 const StudentSchema = Schema({
 
     nombre: {
@@ -14,8 +15,8 @@ const StudentSchema = Schema({
         required: [true, 'El password es obligatorio']
     },
     asignatura: {
-        type: String,
-        required: [true, 'La asignatura es obligatoria']
+        type: [String]
+        
     },
     role: {
         type: String,

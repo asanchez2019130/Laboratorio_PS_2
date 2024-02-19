@@ -1,6 +1,7 @@
 const { response, json } = require('express');
 const bcryptjs = require('bcryptjs');
 const Student = require('../models/student');
+const Cursos = require('../models/cursos')
 
 const studentGet = async (req, res = response) => {
     const { limite, desde } = req.query;
@@ -55,6 +56,24 @@ const studentsDelete = async (req, res) => {
 
 const studentPost = async (req, res) => {
     const { nombre, correo, password, asignatura } = req.body;
+
+    const cursosDuplicados = asignatura.filter((curso, index) => asignatura.indexOf(curso) !== index);
+    if (cursosDuplicados.length > 0) {
+        return res.status(400).json({
+            msg: `No te pudes asignar a un curso dos veces: ${cursosDuplicados.join(', ')}`
+        })
+    }
+
+
+    const cursosExistentes = await Cursos.find({ nombre: { $in: asignatura } });
+    if (cursosExistentes.length !== asignatura.length) {
+        const cursosInexistentes = asignatura.filter(curso => !cursosExistentes.find(c => c.nombre === curso));
+        return res.status(400).json({
+            msg: `Los siguientes cursos no existen : ${cursosInexistentes.join(', ')}`
+        })
+    }
+
+
     const student = new Student({ nombre, correo, password, asignatura });
 
     const salt = bcryptjs.genSaltSync();
