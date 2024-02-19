@@ -40,7 +40,7 @@ router.post(
     "/",
     [
         check("nombre", "El nombre es obligatorio").not().isEmpty(),
-        validarCursos
+        validarCampos
     ], cursosPost);
 
 module.exports = router;

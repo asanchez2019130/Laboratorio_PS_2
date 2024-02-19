@@ -64,7 +64,6 @@ const studentPost = async (req, res) => {
         })
     }
 
-
     const cursosExistentes = await Cursos.find({ nombre: { $in: asignatura } });
     if (cursosExistentes.length !== asignatura.length) {
         const cursosInexistentes = asignatura.filter(curso => !cursosExistentes.find(c => c.nombre === curso));
@@ -72,7 +71,6 @@ const studentPost = async (req, res) => {
             msg: `Los siguientes cursos no existen : ${cursosInexistentes.join(', ')}`
         })
     }
-
 
     const student = new Student({ nombre, correo, password, asignatura });
 

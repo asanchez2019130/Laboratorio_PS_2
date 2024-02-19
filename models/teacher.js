@@ -1,7 +1,6 @@
-const { Schema, model } = require("mongoose")
-const { validateMaxAsignaturaslength } = require("../middlewares/validar-cursos")
-const StudentSchema = Schema({
+const { Schema, model } = require("mongoose");
 
+const TeacherSchema = Schema({
     nombre: {
         type: String,
         required: [true, 'El nombre es obligatorio']
@@ -19,7 +18,7 @@ const StudentSchema = Schema({
     },
     role: {
         type: String,
-        enum: ["STUDENT_ROLE"],
+        enum: ["TEACHER_ROLE", "STUDENT_ROLE"],
         default: "STUDENT_ROLE"
     },
     estado: {
@@ -28,4 +27,4 @@ const StudentSchema = Schema({
     }
 })
 
-module.exports = model('Student', StudentSchema)
+module.exports = model('Teacher', TeacherSchema)
